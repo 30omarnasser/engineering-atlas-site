@@ -1,0 +1,1 @@
+const a={securityLevel:"strict",startOnLoad:!1,flowchart:{useMaxWidth:!1,nodeSpacing:35,rankSpacing:45},sequence:{useMaxWidth:!1,actorMargin:30,width:120},state:{useMaxWidth:!1}};export{a as default};

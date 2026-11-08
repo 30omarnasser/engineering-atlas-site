@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" role="img" aria-labelledby="t d">
+  <title id="t">Point-to-point integrations versus a shared protocol</title>
+  <desc id="d">Top panel, without a shared protocol: three AI applications each need a custom integration with each of three services, giving nine integrations. Bottom panel, with MCP: each application implements the protocol once in its MCP client, and each service is wrapped once by its own MCP server, giving three plus three implementations. Applications still connect to every server they use.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#3c3c43"/>
+    </marker>
+  </defs>
+  <rect width="600" height="720" rx="14" fill="#ffffff"/>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" fill="#1f1f24">
+    <!-- Panel 1 -->
+    <text x="300" y="38" text-anchor="middle" font-size="20" font-weight="700">Without a shared protocol: M × N</text>
+    <g fill="#e8f1fb" stroke="#1f5fa8" stroke-width="2">
+      <rect x="40" y="64" width="150" height="48" rx="8"/>
+      <rect x="40" y="144" width="150" height="48" rx="8"/>
+      <rect x="40" y="224" width="150" height="48" rx="8"/>
+    </g>
+    <g fill="#fff6e5" stroke="#b26a00" stroke-width="2">
+      <rect x="410" y="64" width="150" height="48" rx="8"/>
+      <rect x="410" y="144" width="150" height="48" rx="8"/>
+      <rect x="410" y="224" width="150" height="48" rx="8"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="115" y="94">AI app A</text><text x="115" y="174">AI app B</text><text x="115" y="254">AI app C</text>
+      <text x="485" y="94">GitHub</text><text x="485" y="174">Jira</text><text x="485" y="254">Database</text>
+    </g>
+    <g stroke="#b5462b" stroke-width="2">
+      <line x1="190" y1="88" x2="410" y2="88"/><line x1="190" y1="88" x2="410" y2="168"/><line x1="190" y1="88" x2="410" y2="248"/>
+      <line x1="190" y1="168" x2="410" y2="88"/><line x1="190" y1="168" x2="410" y2="168"/><line x1="190" y1="168" x2="410" y2="248"/>
+      <line x1="190" y1="248" x2="410" y2="88"/><line x1="190" y1="248" x2="410" y2="168"/><line x1="190" y1="248" x2="410" y2="248"/>
+    </g>
+    <text x="300" y="306" text-anchor="middle" font-weight="700" fill="#8f3520">3 × 3 = 9 custom integrations to build and maintain</text>
+
+    <line x1="40" y1="336" x2="560" y2="336" stroke="#c8c8d0" stroke-width="2" stroke-dasharray="6 6"/>
+
+    <!-- Panel 2 -->
+    <text x="300" y="378" text-anchor="middle" font-size="20" font-weight="700">With MCP: M + N</text>
+    <g fill="#e8f1fb" stroke="#1f5fa8" stroke-width="2">
+      <rect x="20" y="404" width="170" height="60" rx="8"/>
+      <rect x="20" y="484" width="170" height="60" rx="8"/>
+      <rect x="20" y="564" width="170" height="60" rx="8"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="105" y="430">AI app A</text><text x="105" y="510">AI app B</text><text x="105" y="590">AI app C</text>
+      <text x="105" y="452" font-size="13" fill="#174a85">+ MCP client</text>
+      <text x="105" y="532" font-size="13" fill="#174a85">+ MCP client</text>
+      <text x="105" y="612" font-size="13" fill="#174a85">+ MCP client</text>
+    </g>
+    <rect x="232" y="404" width="136" height="220" rx="10" fill="#f3effb" stroke="#6f42c1" stroke-width="2"/>
+    <text x="300" y="500" text-anchor="middle" font-weight="700" fill="#55309a">MCP</text>
+    <text x="300" y="522" text-anchor="middle" font-size="13" fill="#55309a">one protocol</text>
+    <text x="300" y="540" text-anchor="middle" font-size="13" fill="#55309a">(JSON-RPC)</text>
+    <g fill="#fff6e5" stroke="#b26a00" stroke-width="2">
+      <rect x="410" y="404" width="170" height="60" rx="8"/>
+      <rect x="410" y="484" width="170" height="60" rx="8"/>
+      <rect x="410" y="564" width="170" height="60" rx="8"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="495" y="430">GitHub</text><text x="495" y="510">Jira</text><text x="495" y="590">Database</text>
+      <text x="495" y="452" font-size="13" fill="#7a4800">+ MCP server</text>
+      <text x="495" y="532" font-size="13" fill="#7a4800">+ MCP server</text>
+      <text x="495" y="612" font-size="13" fill="#7a4800">+ MCP server</text>
+    </g>
+    <g stroke="#2e7d32" stroke-width="3" marker-end="url(#a)">
+      <line x1="190" y1="434" x2="228" y2="434"/><line x1="190" y1="514" x2="228" y2="514"/><line x1="190" y1="594" x2="228" y2="594"/>
+      <line x1="368" y1="434" x2="406" y2="434"/><line x1="368" y1="514" x2="406" y2="514"/><line x1="368" y1="594" x2="406" y2="594"/>
+    </g>
+    <text x="300" y="664" text-anchor="middle" font-weight="700" fill="#1f5f24">3 + 3 = 6 implementations of one protocol</text>
+    <text x="300" y="694" text-anchor="middle" font-size="14" fill="#3c3c43">Runtime connections still exist; what shrinks is custom glue code.</text>
+  </g>
+</svg>

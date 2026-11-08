@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" role="img" aria-labelledby="t d">
+  <title id="t">An agent harness around the core agent loop</title>
+  <desc id="d">The core agent loop sits in the middle: the LLM decides, the harness executes tools, and results return to the LLM. Three groups of harness components surround it. Instructions that shape what the model knows: the system prompt, instruction files such as AGENTS.md or CLAUDE.md, and skills loaded on demand. Capabilities that let it act: built-in tools, tools from MCP servers, and subagents. Work management: plan mode, hooks that run at points in the harness lifecycle, and context management such as compaction.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#3c3c43"/>
+    </marker>
+  </defs>
+  <rect width="600" height="700" rx="14" fill="#ffffff"/>
+  <text x="300" y="38" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="21" font-weight="700" fill="#1f1f24">Agent harness around the core loop</text>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" fill="#1f1f24">
+    <!-- Instructions group -->
+    <rect x="20" y="60" width="560" height="150" rx="12" fill="#e8f1fb" stroke="#1f5fa8" stroke-width="2"/>
+    <text x="36" y="88" font-weight="700" fill="#174a85">Instructions: what the model knows</text>
+    <rect x="36" y="104" width="160" height="88" rx="8" fill="#ffffff" stroke="#1f5fa8"/>
+    <text x="116" y="143" text-anchor="middle">System prompt</text>
+    <text x="116" y="166" text-anchor="middle" font-size="13" fill="#3c3c43">set by the harness</text>
+    <rect x="220" y="104" width="160" height="88" rx="8" fill="#ffffff" stroke="#1f5fa8"/>
+    <text x="300" y="134" text-anchor="middle" font-family="Consolas, Menlo, monospace" font-size="14">AGENTS.md</text>
+    <text x="300" y="154" text-anchor="middle" font-family="Consolas, Menlo, monospace" font-size="14">CLAUDE.md</text>
+    <text x="300" y="176" text-anchor="middle" font-size="13" fill="#3c3c43">set by the project</text>
+    <rect x="404" y="104" width="160" height="88" rx="8" fill="#ffffff" stroke="#1f5fa8"/>
+    <text x="484" y="143" text-anchor="middle">Skills</text>
+    <text x="484" y="166" text-anchor="middle" font-size="13" fill="#3c3c43">loaded on demand</text>
+
+    <!-- Core loop -->
+    <rect x="120" y="262" width="360" height="176" rx="14" fill="#fff6e5" stroke="#b26a00" stroke-width="3"/>
+    <text x="300" y="292" text-anchor="middle" font-weight="700" fill="#7a4800">Core agent loop</text>
+    <rect x="146" y="312" width="130" height="56" rx="8" fill="#ffffff" stroke="#b26a00"/>
+    <text x="211" y="346" text-anchor="middle">LLM</text>
+    <rect x="324" y="312" width="130" height="56" rx="8" fill="#ffffff" stroke="#b26a00"/>
+    <text x="389" y="337" text-anchor="middle">Tool</text>
+    <text x="389" y="357" text-anchor="middle">execution</text>
+    <line x1="278" y1="330" x2="320" y2="330" stroke="#3c3c43" stroke-width="2" marker-end="url(#a)"/>
+    <line x1="322" y1="352" x2="280" y2="352" stroke="#3c3c43" stroke-width="2" marker-end="url(#a)"/>
+    <text x="300" y="404" text-anchor="middle" font-size="14" fill="#3c3c43">decide → act → observe → repeat</text>
+    <text x="300" y="424" text-anchor="middle" font-size="13" fill="#3c3c43">until the model gives a final answer</text>
+
+    <!-- arrows into core -->
+    <line x1="300" y1="212" x2="300" y2="258" stroke="#3c3c43" stroke-width="2" marker-end="url(#a)"/>
+    <text x="310" y="242" font-size="13" fill="#3c3c43">context in</text>
+    <line x1="300" y1="488" x2="300" y2="442" stroke="#3c3c43" stroke-width="2" marker-end="url(#a)"/>
+    <text x="310" y="470" font-size="13" fill="#3c3c43">actions out</text>
+
+    <!-- Capabilities group -->
+    <rect x="20" y="490" width="560" height="110" rx="12" fill="#eaf6ec" stroke="#2e7d32" stroke-width="2"/>
+    <text x="36" y="518" font-weight="700" fill="#1f5f24">Capabilities: what the model can do</text>
+    <rect x="36" y="532" width="160" height="52" rx="8" fill="#ffffff" stroke="#2e7d32"/>
+    <text x="116" y="564" text-anchor="middle">Built-in tools</text>
+    <rect x="220" y="532" width="160" height="52" rx="8" fill="#ffffff" stroke="#2e7d32"/>
+    <text x="300" y="564" text-anchor="middle">MCP servers</text>
+    <rect x="404" y="532" width="160" height="52" rx="8" fill="#ffffff" stroke="#2e7d32"/>
+    <text x="484" y="564" text-anchor="middle">Subagents</text>
+
+    <!-- Work management group -->
+    <rect x="20" y="616" width="560" height="68" rx="12" fill="#f3effb" stroke="#6f42c1" stroke-width="2"/>
+    <text x="36" y="644" font-weight="700" fill="#55309a">Work management</text>
+    <text x="36" y="670" font-size="15">Plan mode · Hooks · Compaction (context management)</text>
+  </g>
+</svg>
